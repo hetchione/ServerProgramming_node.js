@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Login Form with Navbar and Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            color: white;
+            padding: 14px 0;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            display: inline-block;
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-top: 60px; /* Adjust this value if the navbar height changes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px);
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .container button:hover {
+            background-color: #45a049;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+        }
+        .navbar-logo {
+            width: 200px;
+            height: auto;
+        }
+        .container_1 {
+            display: flex;
+            flex-direction: row; /* 기본값이므로 생략 가능 */
+            justify-content: flex-start; /* 요소들을 좌측 정렬 */
+            align-items: left; /* 요소들을 세로축 기준으로 가운데 정렬 */
+            /* gap: 10px; 각 요소들 사이에 간격을 줌 */
+            background-color: gray;
+            padding: 10px;
+            width: 10%;
+        }
+        .container_2 {
+            display: flex;
+            flex-direction: column; /* 기본값이므로 생략 가능 */
+            justify-content: flex-start; /* 요소들을 좌측 정렬 */
+            align-items: left; /* 요소들을 세로축 기준으로 가운데 정렬 */
+            /* gap: 10px; 각 요소들 사이에 간격을 줌 */
+            background-color: gray;
+            padding: 10px;
+            width: 400px;
+        }
+        .item {
+            width: 300px;
+            padding: 20px;
+            background-color: lightblue;
+        }
+        #profile {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: left;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 400px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #000000;
+        }
+
+        .profile-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            margin-right: 20px;
+        }
+
+        .profile-photo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .mypage-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .mypage-button:hover {
+            background-color: #45a049;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .username {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .message {
+            margin: 5px 0 0;
+            font-size: 16px;
+            color: #777;
+        }
+        .search-container {
+            display: flex;
+            align-items: flex-start;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+        }
+
+        .search-input {
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px;
+            width: 80%;
+        }
+
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .interest-list, .calendar {
+            width: 48%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="img/Bridge_job_side_logo.svg" alt="" class="navbar-logo">
+    </div>
+    <div class="container_2">
+        <div class="item" id="profile">
+            <div class="profile-photo">
+                <img src="img/yunjay.jpeg" alt="Profile Photo">
+                <button class="mypage-button">마이페이지</button>
+            </div>
+            <div class="profile-info">
+                <h2 class="username">User</h2>
+                <p class="message">당신의 오늘을 응원합니다.</p>
+            </div>
+        </div>
+        <div class="item" id="today_schedule">5</div>
+        <div class="item" id="week_schedule">6</div>
+        <div class="item" id="submission_papers">7</div>
+    </div>
+    <div class="container_2">
+        <div class="container_1">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="채용 공고 검색...">
+                <button class="search-button">검색</button>
+            </div>
+        </div>
+        <div class="container_1">
+            <div class="calendar">
+                <h2>캘린더</h2>
+                <table id="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>일정이름</th>
+                            <th>공고등록일</th>
+                            <th>공고마감일</th>
+                            <th>디데이</th>
+                            <th>필요서류</th>
+                            <th>완료도</th>
+                            <th>제출여부</th>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Calendar entries will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="interest-list">
+                <h2>관심공고리스트</h2>
+                <ul id="job-list">
+                    <!-- Job postings will be dynamically inserted here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample API URL
+            const apiUrl = 'https://api.samplejobs.com/jobpostings';
+
+            // Fetch job postings from the API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    populateInterestList(data);
+                    populateCalendar(data);
+                })
+                .catch(error => console.error('Error fetching job postings:', error));
+
+            function populateInterestList(data) {
+                const jobList = document.getElementById('job-list');
+                data.forEach(job => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>${job.companyName}</strong><br>
+                        ${job.jobTitle}<br>
+                        D-Day: ${calculateDday(job.deadline)}<br>
+                        필요서류: ${job.requiredDocuments.join(', ')}
+                    `;
+                    jobList.appendChild(listItem);
+                });
+            }
+
+            function populateCalendar(data) {
+                const calendarTable = document.getElementById('calendar-table').querySelector('tbody');
+                data.forEach(job => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${job.jobTitle}</td>
+                        <td>${job.postingDate}</td>
+                        <td>${job.deadline}</td>
+                        <td>${calculateDday(job.deadline)}</td>
+                        <td>${job.requiredDocuments.join(', ')}</td>
+                        <td><input type="range" min="0" max="100" value="0"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="text"></td>
+                    `;
+                    calendarTable.appendChild(row);
+                });
+            }
+
+            function calculateDday(deadline) {
+                const today = new Date();
+                const endDate = new Date(deadline);
+                const diffTime = endDate - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                return diffDays > 0 ? `D-${diffDays}` : `D+${Math.abs(diffDays)}`;
+            }
+        });
+
+    </script>
+</body>
+</html>
